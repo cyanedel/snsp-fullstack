@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate  } from 'react-router-dom';
 import { Container, Form, FormGroup, Row, Col, Button, Card } from 'react-bootstrap';
+import CommonModal from '../../components/common-modal'
 
 export default function EmployeeModify(){
   const navigate = useNavigate();
@@ -8,19 +9,23 @@ export default function EmployeeModify(){
   const [fullname, setfullname] = useState("")
   const [dob, setdob] = useState("")
   const [photo, setphoto] = useState("")
+  const [photodisplay, setphotodisplay] = useState("")
   const [badgeno, setbadgeno] = useState("")
+  const [showmodal, setshowmodal] = useState(false)
+  const [message, setmessage] = useState("")
 
   useEffect(()=>{
-    console.log(emp_id)
     if (emp_id){
       fetch(`http://localhost:8000/select_emp/?id=${emp_id}`)
       .then((res)=>{return res.json()})
       .then((res)=>{
-        console.log(res)
         setbadgeno(res.badge_no)
         setfullname(res.fullname)
         setdob(res.dob)
-        setphoto(res.photo)
+        if (res.photo){
+          // const modifiedUrl = res.photo.replace(/\/photo/, ""); //Django keep returning wrong url. no time to check.
+          setphotodisplay("http://localhost:8000"+res.photo)
+        }
       })
       .catch(err=>{console.log(err); navigate("/");})
     } else {
@@ -29,23 +34,20 @@ export default function EmployeeModify(){
   }, [emp_id, navigate])
 
   const onSubmit = () => {
-    console.log({
-      fullname, dob, photo
-    })
+    const formData = new FormData();
+    formData.append('id', emp_id);
+    formData.append('fullname', fullname);
+    formData.append('dob', dob);
+    if(photo){
+      formData.append('photo', photo);
+    }
 
     fetch("http://localhost:8000/update_emp/", {
       method: "POST",
-      body: JSON.stringify({
-        id: emp_id
-        , fullname: fullname
-        , dob: dob
-      }),
-      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      body: formData,
     })
     .then((res)=>{return res.json()})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((res)=>{setmessage("Information updated.")})
     .catch(err=>console.log(err))
   }
 
@@ -61,9 +63,32 @@ export default function EmployeeModify(){
     .then((res)=>{return res.json()})
     .then((res)=>{
       console.log(res)
+      setmessage("Employee removed. Badge is now Available")
     })
     .catch(err=>console.log(err))
   }
+
+  const onImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      setphoto(file);
+      setphotodisplay(URL.createObjectURL(file));
+    } else {
+      setphoto(null);
+    }
+  };
+  
+  useEffect(()=>{
+    if(message!==""){
+      setshowmodal(true)
+    }
+  }, [message])
+  
+  useEffect(()=>{
+    if(!showmodal){
+      setmessage("")
+    }
+  }, [showmodal])
 
   return (
     <>
@@ -78,15 +103,20 @@ export default function EmployeeModify(){
               <Form.Control defaultValue={fullname} placeholder='type here' onChange={(e)=>{setfullname(e.target.value)}}></Form.Control>
             </FormGroup>
             <FormGroup className='mt-3'>
-              <Form.Label>Date of Birth</Form.Label>
+              <Form.Label>Date of Birth (YYYY-MM-DD)</Form.Label>
               <Form.Control defaultValue={dob} placeholder='type here' onChange={(e)=>{setdob(e.target.value)}}></Form.Control>
             </FormGroup>
           </Col>
           <Col sm={4}>
-            <FormGroup>
-              <Form.Label>Photo</Form.Label>
-              <Form.Control defaultValue={photo} placeholder='type here' onChange={(e)=>{setphoto(e.target.value)}}></Form.Control>
-            </FormGroup>
+            <div className='photo-frame'>
+              <input type="file" accept="image/jpeg, image/png, image/gif" name="employee-photo" className='input-picker' onChange={onImageChange} />
+              {photodisplay ? (
+                <img src={photodisplay} alt="" className='photo-frame-content w-100 p-2'/>
+              ) : (
+                <div className='photo-frame-text photo-frame-content'><div>Select Image</div></div>
+              )}
+            </div>
+            <div className='text-center'>#{badgeno}</div>
           </Col>
         </Row>
       </Container>
@@ -102,6 +132,11 @@ export default function EmployeeModify(){
           </Card.Body>
         </Card>
       </Container>
+      <CommonModal
+        show={showmodal}
+        handleClose={()=>setshowmodal(false)}
+        msg={message}
+      />
     </>
   )
 }

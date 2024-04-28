@@ -13,3 +13,42 @@ code {
     monospace;
 }
 a { text-decoration: none; }
+
+.photo-frame {
+  align-items: center;
+  background-color: var(--bs-white);
+  border-radius: 4px;
+  border: 1px solid var(--bs-border-color);
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  width: 134px;
+}
+
+.input-picker {
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.photo-frame-content {
+  position: absolute;
+  z-index: 0;
+}
+
+.photo-frame-text {
+  align-content: center;
+  bottom: 0;
+  display: grid;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+}

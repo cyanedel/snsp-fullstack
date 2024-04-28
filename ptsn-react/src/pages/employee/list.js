@@ -32,7 +32,7 @@ export default function EmployeeList(){
             const {id, fullname, dob, badge_no} = item
             return(
               <tr key={index}>
-                <td>{badge_no} {id}</td>
+                <td>{badge_no}</td>
                 <td>{fullname}</td>
                 <td>{dob}</td>
                 <td><Link to={`/employee/update/${id}/`}><Button variant="success">Modify</Button></Link></td>
