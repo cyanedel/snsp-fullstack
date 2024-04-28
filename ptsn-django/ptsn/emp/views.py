@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.http import JsonResponse
 from .models import Employee, MasterBadge
 import json
@@ -46,13 +47,17 @@ def assign_badge(request):
     fullname = request.POST.get('fullname')
     dob = request.POST.get('dob')
     photo = request.FILES.get("photo")
-    
-    badge = MasterBadge.objects.filter(reserved=False).first()
-    badge.reserved = True
-    badge.save()
+    try:
+      with transaction.atomic():
+        badge = MasterBadge.objects.select_for_update().filter(reserved=False).first()
+        badge.reserved = True
+        badge.save()
 
-    emp = Employee.objects.create(employee_name=fullname, date_of_birth=dob, badge_no=badge.badge_no, photo=photo, status=True)
-    
+        emp = Employee.objects.create(employee_name=fullname, date_of_birth=dob, badge_no=badge.badge_no, photo=photo, status=True)
+    except Exception as e:
+      # Handle potential errors during transaction
+      transaction.rollback()
+      return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({"employee_id": emp.id, "badge_no": badge.badge_no})
   else:
     return JsonResponse({'error':  'Invalid request.'}, status=405)
