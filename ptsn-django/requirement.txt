@@ -1,0 +1,6 @@
+virtual environment created using venv.
+
+additional deps:
+pip install django
+pip install django-cors-headers
+pip install pillow
