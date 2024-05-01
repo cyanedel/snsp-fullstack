@@ -1,0 +1,352 @@
+[
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000001",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000002",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000003",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000004",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000005",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000006",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000007",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000008",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000009",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000010",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000011",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000012",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000013",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000014",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000015",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000016",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000017",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000018",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000019",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000020",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000021",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000022",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000023",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000024",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000025",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000026",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000027",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000028",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000029",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000030",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000031",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000032",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000033",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000034",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000035",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000036",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000037",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000038",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000039",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000040",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000041",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000042",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000043",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000044",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000045",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000046",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000047",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000048",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000049",
+      "reserved": false
+    }
+  },
+  {
+    "model": "emp.MasterBadge",
+    "fields": {
+      "badge_no": "000050",
+      "reserved": false
+    }
+  }
+]

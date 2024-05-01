@@ -32,23 +32,29 @@ def get_employee_by_id(request, id):
     , 'status': res.status
   }
   
-  return JsonResponse(data)
+  return JsonResponse(data, status=200)
 
 def get_employee_by_status(request, status):
-  res = Employee.objects.filter(status=status)
-  data = [
-    {'id': emp.id, 'badge_no': emp.badge_no, 'fullname': emp.employee_name, 'dob': emp.date_of_birth, 'status': emp.status} for emp in res
-  ]
-  
-  return JsonResponse({'data': data})
+  try:
+    res = Employee.objects.filter(status=status)
+    data = [
+      {'id': emp.id, 'badge_no': emp.badge_no, 'fullname': emp.employee_name, 'dob': emp.date_of_birth, 'status': emp.status} for emp in res
+    ]
+    
+    return JsonResponse({'data': data}, status=200)
+  except Exception as e:
+    return JsonResponse({'error': str(e)}, status=500)
 
 def get_employee_by_name(request, name):
-  res = Employee.objects.filter(status=True).filter(employee_name__icontains=name)
-  data = [
-    {'id': emp.id, 'badge_no': emp.badge_no, 'fullname': emp.employee_name, 'dob': emp.date_of_birth, 'status': emp.status} for emp in res
-  ]
-  
-  return JsonResponse({'data': data})
+  try:
+    res = Employee.objects.filter(status=True).filter(employee_name__icontains=name)
+    data = [
+      {'id': emp.id, 'badge_no': emp.badge_no, 'fullname': emp.employee_name, 'dob': emp.date_of_birth, 'status': emp.status} for emp in res
+    ]
+    
+    return JsonResponse({'data': data}, status=200)
+  except Exception as e:
+    return JsonResponse({'error': str(e)}, status=500)
 
 def assign_badge(request):
   if request.method == 'POST':
@@ -66,7 +72,7 @@ def assign_badge(request):
       # Handle potential errors during transaction
       transaction.rollback()
       return JsonResponse({'error': str(e)}, status=500)
-    return JsonResponse({"employee_id": emp.id, "badge_no": badge.badge_no})
+    return JsonResponse({"employee_id": emp.id, "badge_no": badge.badge_no}, status=200)
   else:
     return JsonResponse({'error':  'Invalid request.'}, status=405)
 
