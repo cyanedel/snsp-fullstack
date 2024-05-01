@@ -42,6 +42,14 @@ def get_employee_by_status(request, status):
   
   return JsonResponse({'data': data})
 
+def get_employee_by_name(request, name):
+  res = Employee.objects.filter(status=True).filter(employee_name__icontains=name)
+  data = [
+    {'id': emp.id, 'badge_no': emp.badge_no, 'fullname': emp.employee_name, 'dob': emp.date_of_birth, 'status': emp.status} for emp in res
+  ]
+  
+  return JsonResponse({'data': data})
+
 def assign_badge(request):
   if request.method == 'POST':
     fullname = request.POST.get('fullname')
